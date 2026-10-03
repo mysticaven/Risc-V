@@ -1,17 +1,17 @@
-Yes. The goal is **not to memorise that ALU testbench**. You should understand the pattern well enough that, when we build a register file tomorrow, you can write its testbench yourself.
+# Writing a SystemVerilog Testbench
 
-A **testbench is simply a piece of SystemVerilog that tests your hardware module**.
+A testbench is a SystemVerilog module that drives inputs into a hardware module and observes its outputs. This guide uses the ALU as its example.
 
 Your actual hardware:
 
 ```text
-rtl/alu.sv
+../rtl/alu.sv
 ```
 
 Your test:
 
 ```text
-tb/alu_tb.sv
+../tb/alu_tb.sv
 ```
 
 The testbench is **not synthesised into your CPU**. It exists only for simulation.
@@ -645,16 +645,16 @@ And so on.
 
 This distinction is **really important** for your project.
 
-Your RTL:
+Implemented RTL modules:
 
 ```text
 rtl/
 ├── alu.sv
-├── regfile.sv
 ├── decoder.sv
-├── control.sv
+├── imm_gen.sv
+├── instruction_memory.sv
 ├── pc.sv
-└── cpu.sv
+└── regfile.sv
 ```
 
 Your testbenches:
@@ -664,10 +664,12 @@ tb/
 ├── alu_tb.sv
 ├── regfile_tb.sv
 ├── decoder_tb.sv
-└── cpu_tb.sv
+└── pc_tb.sv
 ```
 
-You don't put test code inside the CPU.
+These are standalone building blocks; they are not yet connected into a complete CPU.
+
+You don't put test code inside the hardware module.
 
 For example:
 

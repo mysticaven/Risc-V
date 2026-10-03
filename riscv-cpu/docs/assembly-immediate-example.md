@@ -1,6 +1,9 @@
 
-![alt text](image.png)
-There are **three separate problems** in those instructions. You're very close to the right idea, but you've mixed up instruction types again.
+# Building a Value with RV32I Instructions
+
+This example shows how to build a 32-bit value using RISC-V instructions. The original sequence mixes register operands with immediate operands; the corrected sequence below keeps those instruction forms distinct.
+
+![Assembly and machine-code example](images/assembly-example.png)
 
 Your code:
 

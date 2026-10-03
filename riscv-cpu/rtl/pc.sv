@@ -7,14 +7,11 @@ module pc (
 );
 
     always_ff @(posedge clk) begin
-
         if (reset) begin
             current_pc <= 32'b0;
-        end
-        else begin
+        end else begin
             current_pc <= next_pc;
         end
-
     end
 
 endmodule

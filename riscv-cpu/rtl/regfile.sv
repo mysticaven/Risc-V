@@ -22,20 +22,14 @@ module regfile (
 
     // Sequential write port
     always_ff @(posedge clk) begin
-
         if (reset) begin
-
             for (int i = 0; i < 32; i = i + 1) begin
                 registers[i] <= 32'b0;
             end
-
         end
         else if (reg_write && (rd != 5'd0)) begin
-
             registers[rd] <= write_data;
-
         end
-
     end
 
 endmodule

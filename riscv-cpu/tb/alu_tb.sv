@@ -52,8 +52,9 @@ module alu_tb;
         alu_control = 4'b0100;
         #1;
 
-        $display("XOR: %b", result);
-   // NOT 
+           $display("XOR: %b", result);
+
+           // NOT
         a = 500;
         b = 123;
         alu_control = 4'b0101;

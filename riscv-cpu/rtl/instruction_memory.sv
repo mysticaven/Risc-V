@@ -1,10 +1,8 @@
 module instruction_memory (
-
-    
-    input  logic        address,
-    input  logic        instruction,
+    input  logic [31:0] address,
+    output logic [31:0] instruction
 );
-    
+
     logic [31:0] memory [0:255]; // 256 x 32-bit instruction memory
     initial begin
         // Initialize instruction memory with some instructions
