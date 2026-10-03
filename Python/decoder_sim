@@ -1,0 +1,65 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_00000161586551d0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_00000161586555f0 .scope module, "decoder_tb" "decoder_tb" 3 1;
+ .timescale 0 0;
+v0000016158663180_0 .net "funct3", 2 0, L_0000016158662fa0;  1 drivers
+v0000016158663cc0_0 .net "funct7", 6 0, L_0000016158663720;  1 drivers
+v0000016158662f00_0 .var "instruction", 31 0;
+v00000161586635e0_0 .net "opcode", 6 0, L_00000161586634a0;  1 drivers
+v0000016158663900_0 .net "rd", 4 0, L_0000016158663220;  1 drivers
+v0000016158663400_0 .net "rs1", 4 0, L_00000161586639a0;  1 drivers
+v0000016158663680_0 .net "rs2", 4 0, L_0000016158663360;  1 drivers
+S_000001615861e0b0 .scope module, "dut" "decoder" 3 12, 4 1 0, S_00000161586555f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "instruction";
+    .port_info 1 /OUTPUT 7 "opcode";
+    .port_info 2 /OUTPUT 5 "rd";
+    .port_info 3 /OUTPUT 5 "rs1";
+    .port_info 4 /OUTPUT 5 "rs2";
+    .port_info 5 /OUTPUT 3 "funct3";
+    .port_info 6 /OUTPUT 7 "funct7";
+v0000016158655780_0 .net "funct3", 2 0, L_0000016158662fa0;  alias, 1 drivers
+v00000161586337f0_0 .net "funct7", 6 0, L_0000016158663720;  alias, 1 drivers
+v0000016158619940_0 .net "instruction", 31 0, v0000016158662f00_0;  1 drivers
+v000001615861e240_0 .net "opcode", 6 0, L_00000161586634a0;  alias, 1 drivers
+v0000016158663b80_0 .net "rd", 4 0, L_0000016158663220;  alias, 1 drivers
+v0000016158662e60_0 .net "rs1", 4 0, L_00000161586639a0;  alias, 1 drivers
+v0000016158663540_0 .net "rs2", 4 0, L_0000016158663360;  alias, 1 drivers
+L_00000161586634a0 .part v0000016158662f00_0, 0, 7;
+L_0000016158663220 .part v0000016158662f00_0, 7, 5;
+L_0000016158662fa0 .part v0000016158662f00_0, 12, 3;
+L_00000161586639a0 .part v0000016158662f00_0, 15, 5;
+L_0000016158663360 .part v0000016158662f00_0, 20, 5;
+L_0000016158663720 .part v0000016158662f00_0, 25, 7;
+    .scope S_00000161586555f0;
+T_0 ;
+    %pushi/vec4 1048723, 0, 32;
+    %store/vec4 v0000016158662f00_0, 0, 32;
+    %delay 1, 0;
+    %vpi_call/w 3 28 "$display", "Instruction = %h", v0000016158662f00_0 {0 0 0};
+    %vpi_call/w 3 29 "$display", "opcode       = %b", v00000161586635e0_0 {0 0 0};
+    %vpi_call/w 3 30 "$display", "rd           = %d", v0000016158663900_0 {0 0 0};
+    %vpi_call/w 3 31 "$display", "rs1          = %d", v0000016158663400_0 {0 0 0};
+    %vpi_call/w 3 32 "$display", "rs2          = %d", v0000016158663680_0 {0 0 0};
+    %vpi_call/w 3 33 "$display", "funct3       = %b", v0000016158663180_0 {0 0 0};
+    %vpi_call/w 3 34 "$display", "funct7       = %b", v0000016158663cc0_0 {0 0 0};
+    %vpi_call/w 3 36 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/decoder_tb.sv";
+    "rtl/decoder.sv";
